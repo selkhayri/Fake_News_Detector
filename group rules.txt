@@ -1,0 +1,17 @@
+New Students: Please introduce yourself
+After you join the group, please create a new post telling us a bit about yourself. Who are you? Where do you live? What kind of work do you do? What are you interested in learning?
+2
+Technical Questions Must Include Details and Links
+If you need technical help: You must provide a detailed description of the problem you're facing AND a link to your code (on Github, JS Bin, etc). Please do not screenshot, attach or paste your code.
+3
+Threads Must Be Relevant to Computer Science
+This is not the place to post pictures of your cat, discuss politics, or share funny memes.
+4
+No Hate Speech or Bullying
+Make sure everyone feels safe. Bullying of any kind isn't allowed, and degrading comments about things like race, religion, culture, sexual orientation, gender or identity will not be tolerated.
+5
+Be Kind and Courteous
+We're all in this together to create a welcoming environment. Let's treat everyone with respect. Healthy debates are natural, but kindness is required.
+6
+No Thread Hijacking
+Do not post a new unrelated question/topic on someone else's thread. If you have a topic to discuss, or a new question to ask then please create a new post.
