@@ -1,0 +1,22 @@
+www.politico.eu
+
+title
+/html/body/main/div/div[2]/div/div/div/div/div/div/h1
+body > main > div > div.block-collection.no-margin-bottom > div > div > div > div > div > div > h1
+/html/body/main/div/div[2]/div/div/div/div/div/div/h1
+.article-meta__title
+
+text
+body > main > div > div:nth-child(3) > div > div.article__content > div.article__content
+
+
+https://www.tmz.com/
+
+title
+class="article__headline-title"
+
+text
+class="article__hf2 text-uppercase h1"
+
+
+
