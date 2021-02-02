@@ -18,5 +18,14 @@ class="article__headline-title"
 text
 class="article__hf2 text-uppercase h1"
 
+nytimes
+
+div.css-1fanzo5:nth-child(3) > div:nth-child(1) > p:nth-child(1)
+div.css-1fanzo5:nth-child(3) > div:nth-child(1) > p:nth-child(1)
 
 
+
+html.story body div#app div div div main#site-content div article#story.css-1vxca1d.e1qksbhf0 section.meteredContent.css-1r7ky0e div.css-1fanzo5.StoryBodyCompanionColumn div.css-53u6y8 p.css-axufdj.evys1bk0
+
+NBC
+class: ArticleHeader-headline
