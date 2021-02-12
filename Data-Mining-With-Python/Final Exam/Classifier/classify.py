@@ -27,6 +27,7 @@ import scraping_config
 from nltk.corpus import stopwords
 
 import spacy
+import pickle
 
 
 # Class Classifier 
@@ -52,7 +53,9 @@ class Classifier:
         self.logger.addHandler(fh)
         
         self.nlp = spacy.load("en_core_web_sm")
-    
+        
+        with open(scraping_config.model_pickle_file) as f:
+            self.dl_model = pickle.load(f,encoding="utf-8")   # <== CONTINUE HERE
         
     #========================================================================
     # This method filters out the articles from the retrieved 
