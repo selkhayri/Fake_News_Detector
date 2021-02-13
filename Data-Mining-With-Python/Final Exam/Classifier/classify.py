@@ -63,7 +63,8 @@ class Classifier:
         with open(scraping_config.vectorizer_file,"rb") as f:
             self.vect = pickle.load(f)
             
-            
+        with open(scraping_config.encoder_file,"rb") as f:
+            self.enc = pickle.load(f)    
     #========================================================================
     # This method filters out the articles from the retrieved 
     # article snippets that are not in the specified language, lang.
@@ -159,10 +160,10 @@ class Classifier:
             
             # print(type(self.dl_model))
             
-            X = self.vect.transform(text)
+            X = self.vect.transform([text])
             
-            fake = self.dl_model.predict(X)
-            print(fake)
+            real = self.dl_model.predict(X)
+            print(article["title"],self.enc.inverse_transform([real]))
     
     #========================================================================
     # This method retrieves the article snippets from the api-specific
