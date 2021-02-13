@@ -29,6 +29,9 @@ from nltk.corpus import stopwords
 import spacy
 import pickle
 
+# Feature Matrix creation
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Class Classifier 
 class Classifier:
@@ -54,9 +57,13 @@ class Classifier:
         
         self.nlp = spacy.load("en_core_web_sm")
         
-        with open(scraping_config.model_pickle_file) as f:
-            self.dl_model = pickle.load(f,encoding="utf-8")   # <== CONTINUE HERE
+        with open(scraping_config.model_pickle_file,"rb") as f:
+            self.dl_model = pickle.load(f)
         
+        with open(scraping_config.vectorizer_file,"rb") as f:
+            self.vect = pickle.load(f)
+            
+            
     #========================================================================
     # This method filters out the articles from the retrieved 
     # article snippets that are not in the specified language, lang.
@@ -138,6 +145,7 @@ class Classifier:
     
         return lemmatized
     
+          
     def clean_articles(self):
         for i,article in enumerate(self.article_list):
             text = article['text']
@@ -149,8 +157,12 @@ class Classifier:
             text = self.remove_stopwords(text)
             text = self.lemmatize(text)
             
-            print(text)
-    
+            # print(type(self.dl_model))
+            
+            X = self.vect.transform(text)
+            
+            fake = self.dl_model.predict(X)
+            print(fake)
     
     #========================================================================
     # This method retrieves the article snippets from the api-specific
