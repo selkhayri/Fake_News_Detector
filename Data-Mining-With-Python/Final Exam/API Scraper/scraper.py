@@ -28,7 +28,6 @@ class Scraper:
     # Class constructor
     def __init__(self):
         # Initialize logging
-    
         self.logger = logging.getLogger(scraping_config.log_file)
         self.logger.setLevel(logging.DEBUG)
         
