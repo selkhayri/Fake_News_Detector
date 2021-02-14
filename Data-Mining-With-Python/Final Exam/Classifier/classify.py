@@ -116,7 +116,7 @@ class Classifier:
     
     # =======================================================================
     # This method transforms a given passage of text to lower case
-    
+    #
     # Input:
     #     text - the text to be transformed to lower case
     # Return:
@@ -129,7 +129,7 @@ class Classifier:
     # ========================================================================
     # This method places a space between periods at the end of a sentence and
     # the beginning of the following sentence.
-    
+    #
     # Input:
     #     text - the text to be transformed
     # Return:
@@ -141,7 +141,7 @@ class Classifier:
        
     # ========================================================================
     # This method removes all the numeric strings
-    
+    #
     # Input: 
     #     text - the text from which the numeric strings are going to be removed
     # Return:
@@ -153,7 +153,7 @@ class Classifier:
     
     # =========================================================================
     # This method removes the punctuation characters from the text
-    
+    #
     # Input:
     #     text - the text from which punctuation is to be removed
     # Return:
@@ -165,7 +165,7 @@ class Classifier:
     
     # ========================================================================
     # This method returns a list of customized stopwords from the text
-    
+    #
     # Input:
     #     None
     # Return:
@@ -190,7 +190,7 @@ class Classifier:
     
     # ========================================================================
     # This method removes the stopwords from the text
-    
+    #
     # Input:
     #     text - the text from which stopwords are to be removed
     # Return:
@@ -210,7 +210,7 @@ class Classifier:
     #     None
     # ========================================================================  
     def clean_articles(self):
-                
+             
         self.df = pd.DataFrame(self.article_list)
         
         self.df["text"] = self.df["text"].apply(lambda x: self.to_lower(x))
@@ -234,10 +234,11 @@ class Classifier:
     def make_predictions(self):
         X = self.vect.transform(self.df["text"])
         
-        self.df["TrueOrFalse"] = self.dl_model.predict(X)
-        self.df["TrueOrFalse"] = self.enc.inverse_transform(self.df["TrueOrFalse"])
+        true_or_false = self.enc.inverse_transform(self.dl_model.predict(X))
+        self.df["TrueOrFalse"] = ["Likely True" if x == "REAL" \
+                                  else "Likely False" for x in true_or_false]
         
-        self.logger.debug("self.df['TrueOrFalse'] = {}".format(self.df["TrueOrFalse"]))
+        # self.logger.debug("self.df['TrueOrFalse'] = {}".format(self.df["TrueOrFalse"]))
         
     #========================================================================
     # This method retrieves the article snippets from the api-specific
@@ -344,7 +345,7 @@ class Classifier:
     #======================================================================== 
     def update_record(self,x):
         self.logger.debug("Updating DB record ... {}".format(x["pk"]))
-        self.logger.debug("x[\"TrueOrFalse\"] = {}".format(x['TrueOrFalse']))
+        # self.logger.debug("x[\"TrueOrFalse\"] = {}".format(x['TrueOrFalse']))
         
         try:
             self.logger.debug("Getting db connection ...")
@@ -388,7 +389,7 @@ class Classifier:
     # Return:
     #   None
     #========================================================================
-    def save_articles(self):
+    def update_articles(self):
        
         self.logger.debug("Saving articles ...")
         self.df.apply(lambda x: self.update_record(x), axis=1)
@@ -411,10 +412,14 @@ class Classifier:
         # Parse the articles and place them into the article_list instance variable
         self.parse_articles()
         
+        # Clean the text of the articles
         self.clean_articles()
         
-        # Save the articles to the database
-        self.save_articles()
+        # Predict which articles are likely true and which are likely false
+        self.make_predictions()
+        
+        # Populate the TrueOrFalse column in the database with the predictions
+        self.update_articles()
          
 if __name__ == "__main__":
 
