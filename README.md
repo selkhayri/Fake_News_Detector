@@ -20,7 +20,7 @@ To facilitate the classification process, the following objects were pickled for
 
 ###  Scraping news sites
 
-News articles were retrieved from mediastack.com and stored in an sqlite database for later processing by the classification process.
+Using an API call, news articles were retrieved from mediastack.com and stored in an sqlite database for later processing by the classification process.
 
 ### Classification
 
@@ -33,13 +33,11 @@ The classifier module accomplished its task as follows:
 
 ### Folders and files
 
-* API Scraper/scraper.py: The python file used to retrieve articles from the news source.
-* API Scraper/mediastack.txt: The file containin json data about the retrieved articles.
+* API Scraper/scraper.py: The python file using API calls to retrieve articles from the news source.
+* API Scraper/mediastack.txt: The file containing json data about the retrieved articles.
 * Classifier/classify.py: The python file used to classify the articles.
 * data/news.sqlite: The sqlite database used to store the articles as well as their classification.
 * data/1 and data/2: Folders containing the labeled data used to train and test the machine learning mode.
 * logs/scraper.log
 * nlp/stop_words_english.txt: The text file containing stop words on top of the ones identified by the spacy library.
 * *.pkl files: The pickle files used to marshall and unmarshall python objects
-
-
