@@ -41,3 +41,22 @@ The classifier module accomplished its task as follows:
 * **logs/scraper.log** 
 * **nlp/stop_words_english.txt** : The text file containing stop words on top of the ones identified by the spacy library.
 * <b>*.pkl files</b> : The pickle files used to marshall and unmarshall python objects
+
+### Config 
+
+#### scraping_config.py
+
+This file contains the following items:
+
+* **apis**: The apis to be scraped for news articles
+* **article_text**: The css elements to use for parsing the sraped articles
+* **project_path**: The path where the project is located
+* **db_table**: The name of the table in which to store the articles
+* **db_file**: The name of the sqlite file
+* **db_retrieval_query**: The query for retrieving articles from the sqlite database
+* **db_update_query**: The query for update the article classification in the sqlite database
+* **log_name**: The name of the log file
+* **model_pickle_file**: The name of the pickle file containing the machine learning model
+* **vectorizer_file**: The name of the pickle file containing the TFIDF_Vectorizer object
+* **encoder_file**: The name of the pickle file containing the trained classification label encoder
+
