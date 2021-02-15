@@ -1,4 +1,4 @@
-# Pirple
+# Fake News Detector
 
 ## Purpose
 
