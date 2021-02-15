@@ -40,4 +40,4 @@ The classifier module accomplished its task as follows:
 * **data/1 and data/2** : Folders containing the labeled data used to train and test the machine learning mode.
 * **logs/scraper.log** 
 * **nlp/stop_words_english.txt** : The text file containing stop words on top of the ones identified by the spacy library.
-* ** *.pkl files** : The pickle files used to marshall and unmarshall python objects
+* ** \*.pkl files** : The pickle files used to marshall and unmarshall python objects
