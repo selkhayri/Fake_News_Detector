@@ -66,7 +66,7 @@ This file contains the following items:
 
 ## Results
 
-The logistic regression model that was derived from the training set was tested on the test set and the following was the confusion matrix:
+The logistic regression model that was derived from the training set was tested on the test set and the following was the **confusion matrix**:
 
 <div align="center">
 <table border="1">
@@ -77,9 +77,9 @@ The logistic regression model that was derived from the training set was tested 
 
 As such, the following are the precision, recall, and F1 score values for the predictor:
 
-**precision** = 5890 / (5890 + 122) =  96.3%
-**recall** = 5890/ (5980 + 252) = 95.8%
-**F1 Score** = 2 * precision * recall / (precision + recall) = 96/1%
+* **precision** = 5890 / (5890 + 122) =  96.3%
+* **recall** = 5890/ (5980 + 252) = 95.8%
+* **F1 Score** = 2 * precision * recall / (precision + recall) = 96/1%
 
 ## Observations
 
